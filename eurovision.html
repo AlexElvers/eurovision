@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Eurovision Song Contest: Voting Behaviour</title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+		google.load("visualization", "1.1", {packages:["sankey"]});
+		google.setOnLoadCallback(drawChart);
+
+		function drawChart() {
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', 'Voter');
+			data.addColumn('string', 'Contestant');
+			data.addColumn('number', 'Average Points');
+			data.addColumn({type: 'number', label: 'Summed Points'});
+			data.addColumn({type: 'number', label: 'Number of Votings'});
+			data.addRows([
+				[ 'Albania', 'Greece ', 9.9, 119, 12 ],
+				[ 'Andorra', 'Spain ', 10.0, 60, 6 ],
+				[ 'Armenia', 'Russia ', 10.6, 95, 9 ],
+				[ 'Armenia', 'Greece ', 7.1, 64, 9 ],
+				[ 'Armenia', 'Georgia ', 6.3, 57, 9 ],
+				[ 'Armenia', 'Ukraine ', 6.2, 56, 9 ],
+				[ 'Australia', 'Sweden ', 12.0, 12, 1 ],
+				[ 'Australia', 'Russia ', 10.0, 10, 1 ],
+				[ 'Australia', 'Italy ', 8.0, 8, 1 ],
+				[ 'Australia', 'Latvia ', 7.0, 7, 1 ],
+				[ 'Azerbaijan', 'Ukraine ', 8.4, 67, 8 ],
+				[ 'Azerbaijan', 'Russia ', 6.9, 55, 8 ],
+				[ 'Belarus', 'Russia ', 10.8, 129, 12 ],
+				[ 'Belarus', 'Ukraine ', 8.0, 96, 12 ],
+				[ 'Belgium', 'Turkey ', 6.1, 91, 15 ],
+				[ 'Bosnia and Herzegovina', 'Turkey ', 6.3, 76, 12 ],
+				[ 'Bulgaria', 'Greece ', 9.0, 81, 9 ],
+				[ 'Croatia', 'Bosnia and Herzegovina ', 8.4, 118, 14 ],
+				[ 'Cyprus', 'Greece ', 10.9, 152, 14 ],
+				[ 'Czech Republic', 'Armenia ', 9.0, 36, 4 ],
+				[ 'Czech Republic', 'Azerbaijan ', 8.0, 32, 4 ],
+				[ 'Czech Republic', 'Russia ', 7.2, 29, 4 ],
+				[ 'Czech Republic', 'Ukraine ', 6.2, 25, 4 ],
+				[ 'Denmark', 'Sweden ', 9.1, 137, 15 ],
+				[ 'Estonia', 'Russia ', 8.9, 143, 16 ],
+				[ 'Estonia', 'Sweden ', 6.1, 97, 16 ],
+				[ 'Finland', 'Sweden ', 7.4, 103, 14 ],
+				[ 'France', 'Turkey ', 7.7, 123, 16 ],
+				[ 'Georgia', 'Armenia ', 8.5, 68, 8 ],
+				[ 'Georgia', 'Azerbaijan ', 7.8, 62, 8 ],
+				[ 'Georgia', 'Ukraine ', 7.1, 57, 8 ],
+				[ 'Germany', 'Turkey ', 6.9, 111, 16 ],
+				[ 'Iceland', 'Denmark ', 7.1, 107, 15 ],
+				[ 'Israel', 'Russia ', 7.0, 112, 16 ],
+				[ 'Latvia', 'Russia ', 8.1, 129, 16 ],
+				[ 'Lithuania', 'Russia ', 7.0, 98, 14 ],
+				[ 'Moldova', 'Romania ', 11.4, 125, 11 ],
+				[ 'Moldova', 'Russia ', 8.2, 90, 11 ],
+				[ 'Moldova', 'Ukraine ', 7.3, 80, 11 ],
+				[ 'Montenegro', 'Serbia ', 6.9, 48, 7 ],
+				[ 'Netherlands', 'Turkey ', 7.3, 109, 15 ],
+				[ 'Norway', 'Sweden ', 7.6, 114, 15 ],
+				[ 'Poland', 'Ukraine ', 6.8, 82, 12 ],
+				[ 'Portugal', 'Spain ', 7.9, 103, 13 ],
+				[ 'Romania', 'Greece ', 6.7, 100, 15 ],
+				[ 'Romania', 'Moldova ', 6.3, 94, 15 ],
+				[ 'Serbia', 'Bosnia and Herzegovina ', 7.6, 61, 8 ],
+				[ 'Serbia and Montenegro', 'Macedonia ', 9.0, 27, 3 ],
+				[ 'Serbia and Montenegro', 'Croatia ', 8.3, 25, 3 ],
+				[ 'Serbia and Montenegro', 'Greece ', 8.3, 25, 3 ],
+				[ 'Serbia and Montenegro', 'Bosnia and Herzegovina ', 7.3, 22, 3 ],
+				[ 'Spain', 'Romania ', 7.6, 121, 16 ],
+				[ 'Turkey', 'Bosnia and Herzegovina ', 7.2, 93, 13 ],
+				[ 'Ukraine', 'Russia ', 8.7, 104, 12 ],
+				
+			]);
+
+			// Sets chart options.
+			var options = {
+				width: 1000,
+			};
+
+			// Instantiates and draws our chart, passing in some options.
+			var chart = new google.visualization.Sankey(document.getElementById('eurovision_sankey'));
+			chart.draw(data, options);
+		}
+	</script>
+	<style>
+		a[href] {
+			color: #00f;
+			text-decoration: none;
+		}
+		body {
+			font-family: 'Roboto', sans-serif;
+			font-size: 14px;
+		}
+		h1 {
+			font-weight: 300;
+			font-size: 34px;
+		}
+		p.right {
+			font-size: 12px;
+			text-align: right;
+		}
+		.grey {
+			color: #555;
+		}
+		.full {
+			width: 1000px;
+			margin: 0 auto 0;
+		}
+	</style>
+</head>
+<body>
+	<a href="https://github.com/AlexElvers/eurovision"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+	<div class="full">
+		<h1>Eurovision Song Contest: Voting Behaviour</h1>
+		<p>
+			This diagram shows the average voting behaviour of the Eurovision Song Contest from 2000 to 2015. The voting countries are on the left side, the contestants are on the right side.
+			
+			For reasons of clarity, the diagram does not contain connections below 6 points.
+			
+		</p>
+		<p class="right">Author: Alexander Elvers&ensp;(<a href="https://twitter.com/alexelvers">Twitter</a>&ensp;<a href="https://plus.google.com/+AlexanderElvers">Google+</a>&ensp;<a href="https://github.com/alexelvers">GitHub</a>)</p>
+		<div id="eurovision_sankey" style="width: 1000px; height: 2000px;"></div>
+		<p class="right">Data Source: English Wikipedia (CC-BY-SA 3.0)</p>
+	</div>
+</body>
+</html>
