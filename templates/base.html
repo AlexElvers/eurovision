@@ -6,7 +6,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
-		google.load("visualization", "1.1", {packages:["sankey"]});
+		google.load("visualization", "1.1", {packages:["sankey", "table"]});
 		google.setOnLoadCallback(drawChart);
 
 		function drawChart() {
@@ -30,6 +30,9 @@
 			// Instantiates and draws our chart, passing in some options.
 			var chart = new google.visualization.Sankey(document.getElementById('eurovision_sankey'));
 			chart.draw(data, options);
+
+			var table = new google.visualization.Table(document.getElementById('eurovision_table'));
+			table.draw(data, {showRowNumber: true});
 		}
 	</script>
 	<style>
@@ -70,6 +73,8 @@
 		</p>
 		<p class="right">Author: Alexander Elvers&ensp;(<a href="https://twitter.com/alexelvers">Twitter</a>&ensp;<a href="https://plus.google.com/+AlexanderElvers">Google+</a>&ensp;<a href="https://github.com/alexelvers">GitHub</a>)</p>
 		<div id="eurovision_sankey" style="width: {{ chart_height|default(1000, True) }}px; height: {{ chart_height|default(2000, True) }}px;"></div>
+		<div id="eurovision_table"></div>
+
 		<p class="right">Data Source: English Wikipedia (CC-BY-SA 3.0)</p>
 	</div>
 </body>
